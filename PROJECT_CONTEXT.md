@@ -70,3 +70,37 @@ Layout de la galería (personalizado, no usa el componente `ProjectImageGrid` es
 ## Pendiente / notas de seguridad
 
 - El remote de git (`git remote -v`) tiene un token de GitHub incrustado en la URL. Se recomienda rotarlo/reemplazarlo por seguridad cuando el usuario tenga oportunidad.
+
+## ⚠️ IMPORTANTE: hay 3 proyectos/portafolios distintos, no uno solo
+
+Existen 3 carpetas/repositorios separados en `C:\Users\alura\Downloads\Claude\PortfolioHTML\`, cada uno con su propio sitio en Vercel:
+
+| Carpeta | Repo GitHub | URL en vivo |
+|---|---|---|
+| `portfolio-product` | `data-portfolio-studio` | (portafolio "producto/completo", 5 proyectos) |
+| `portfolio-bi` | `portfolio-bi` | https://portfolio-bi-iota.vercel.app/ |
+| `portfolio-data-analysis` | `portfolio-data-analysis` | https://portfolio-data-analysis-silk.vercel.app/ |
+
+**Antes de hacer un cambio hay que preguntar o confirmar en cuál(es) de los 3 aplica**, porque tienen contenido parecido pero no idéntico (por ejemplo, "Nu Split — Shared Payments Feature" solo existe en `portfolio-bi` y `portfolio-product`, no en `portfolio-data-analysis`). Si el usuario menciona una sección sin decir el sitio, buscar en los 3 antes de asumir cuál es. Un cambio pedido para "el portafolio" casi siempre debe aplicarse en los 3 si la sección existe en los 3, y avisar explícitamente en cuáles se aplicó.
+
+## Convenciones sobre imágenes en las galerías de proyectos (`ProjectImageGrid`)
+
+Componente en `src/components/portfolio/ImagePlaceholder.tsx`. Preferencia confirmada del usuario:
+
+- **NO** usar un marco forzado tipo `aspect-[4/3]` con `object-contain` — eso recorta/reduce imágenes con proporciones distintas a 4:3 y dejaba espacio vacío alrededor (se notaba como "fondo gris" o "espacio en blanco" según el color de fondo del marco).
+- **SÍ** usar el estilo de `portfolio-product` (la versión correcta, ya replicada en los 3 proyectos): el `<a>` contenedor SIN `aspect-*` fijo, y la imagen con `className="max-h-[420px] w-auto max-w-full object-contain ..."` — así cada imagen respeta su proporción natural y no queda espacio sobrante.
+- El fondo de la tarjeta/marco de imagen debe ser blanco (`bg-white`), no gris (antes era `bg-card-foreground/[0.03]`, que se veía como un gris clarito indeseado).
+- Cuando varias imágenes de una misma fila/sección deben verse "del mismo tamaño" entre sí (ej. las 6 gráficas de "Customer Segmentation"), la forma correcta es generar/exportar esas imágenes ya con las mismas dimensiones en píxeles (mismo ancho×alto) ANTES de subirlas — no forzar un marco CSS parejo, porque eso recorta o dejaba espacio vacío según la proporción de cada imagen.
+
+## Sección "Customer Segmentation for Credit Card Clients" — origen de las imágenes
+
+- Las 6 gráficas de esta sección (Elbow Method, Dominant Merchant Category, Average Transaction Amount, Most Used Card Franchise, Domestic vs. International Spending, Spending by Day of Week) se generan con matplotlib/seaborn desde el notebook de Jupyter `ConsumoTarjetasCredito.ipynb` (Google Colab), que lee el archivo `infoclientebanca_en.xlsx`. El usuario tiene ambos archivos y los puede volver a compartir si hace falta regenerar las gráficas.
+- Las imágenes finales usadas en el sitio están en `src/assets/projects/` con nombres `segmentation-*.png` (ej. `segmentation-5-elbow-method.png`).
+- El botón "Notebook" de esta sección apunta a un archivo HTML exportado del mismo notebook (`ConsumoTarjetasCredito.html` en `portfolio-bi`/`portfolio-data-analysis`, o `notebook-segmentacion-clientes.html` en `portfolio-product` — el nombre varía por proyecto).
+- Para que las 6 gráficas del notebook no tuvieran fondo gris y quedaran del mismo tamaño, se les agregó `facecolor='white'` y se unificó `figsize=(6, 4)` en el código del notebook antes de re-ejecutarlo y volver a exportar tanto las imágenes PNG como el HTML.
+
+## Flujo de deployment — aplica igual en los 3 proyectos
+
+Mismo flujo que ya estaba documentado: `git add -A`, `git commit`, `git push origin main` desde la carpeta del proyecto correspondiente. Vercel despliega solo tras el push (1-2 min). Si el usuario no ve cambios, recordarle recargar con Ctrl+Shift+R antes de asumir que el deploy falló, y verificar en Vercel > Deployments que el commit correcto quedó en Production.
+
+Nota técnica: al hacer `git commit`/`add` desde el bridge remoto a veces quedan archivos de lock (`.git/HEAD.lock`, `.git/index.lock`) que no se pueden borrar por permisos — si pasa, pedir permiso de borrado (`device_request_delete_permission`) sobre la carpeta `PortfolioHTML` y luego eliminar los `.lock` antes de reintentar el commit.
