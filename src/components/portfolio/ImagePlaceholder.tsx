@@ -37,13 +37,13 @@ export function ProjectImageGrid({
           href={image.src}
           target="_blank"
           rel="noreferrer"
-          className="group flex items-center justify-center overflow-hidden rounded-md"
+          className="group flex aspect-[4/3] items-center justify-center overflow-hidden rounded-md bg-card-foreground/[0.03]"
         >
           <img
             src={image.src}
             alt={image.alt}
             loading="lazy"
-            className="max-h-[420px] w-auto max-w-full object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+            className="h-full w-full object-contain p-2 transition-transform duration-300 group-hover:scale-[1.02]"
           />
         </a>
       ))}
