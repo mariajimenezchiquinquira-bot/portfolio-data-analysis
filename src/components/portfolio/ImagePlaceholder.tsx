@@ -37,7 +37,7 @@ export function ProjectImageGrid({
           href={image.src}
           target="_blank"
           rel="noreferrer"
-          className="group flex aspect-[4/3] items-center justify-center overflow-hidden rounded-md bg-card-foreground/[0.03]"
+          className="group flex aspect-[4/3] items-center justify-center overflow-hidden rounded-md bg-white"
         >
           <img
             src={image.src}
