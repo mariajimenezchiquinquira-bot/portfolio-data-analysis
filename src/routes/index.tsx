@@ -138,13 +138,10 @@ function Index() {
               title="Customer Segmentation for Credit Card Clients"
               tech={["Python", "SQL"]}
               actions={
-                <>
-                  <GithubLink href="https://github.com/mariajimenezchiquinquira-bot/segmentacion-clientes-tarjetas-credito" />
-                  <ActionLink href="/notebook-segmentacion-clientes.html">
-                    <FileText className="h-4 w-4" aria-hidden="true" />
-                    Notebook
-                  </ActionLink>
-                </>
+                <ActionLink href="/ConsumoTarjetasCredito.html" variant="solid">
+                  <FileText className="h-4 w-4" aria-hidden="true" />
+                  Notebook
+                </ActionLink>
               }
             >
               <CardBlock label="Problem">
