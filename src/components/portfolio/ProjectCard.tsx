@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { ArrowUpRight, Github } from "lucide-react";
+import { ArrowUpRight, FileText, Github } from "lucide-react";
 
 export function CardBlock({ label, children }: { label: string; children: ReactNode }) {
   return (
@@ -45,6 +45,15 @@ export function GithubLink({ href }: { href: string }) {
     <ActionLink href={href} variant="solid">
       <Github className="h-4 w-4" aria-hidden="true" />
       View on GitHub
+    </ActionLink>
+  );
+}
+
+export function DocsLink({ href, label = "How It Works" }: { href: string; label?: string }) {
+  return (
+    <ActionLink href={href} variant="solid">
+      <FileText className="h-4 w-4" aria-hidden="true" />
+      {label}
     </ActionLink>
   );
 }

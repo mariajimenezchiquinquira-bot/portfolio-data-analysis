@@ -3,6 +3,7 @@ import { FileText, Linkedin } from "lucide-react";
 import {
   ActionLink,
   CardBlock,
+  DocsLink,
   GithubLink,
   ProjectCard,
 } from "@/components/portfolio/ProjectCard";
@@ -177,7 +178,7 @@ function Index() {
               title="Vehicle Contract Automation"
               tech={["n8n", "Google Gemini (AI)"]}
               actions={
-                <GithubLink href="https://github.com/mariajimenezchiquinquira-bot/n8n_Automatizacion_Lectura_Contratos" />
+                <DocsLink href="#" />
               }
             >
               <CardBlock label="Problem">
