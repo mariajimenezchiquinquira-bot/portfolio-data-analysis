@@ -178,7 +178,7 @@ function Index() {
               title="Vehicle Contract Automation"
               tech={["n8n", "Google Gemini (AI)"]}
               actions={
-                <DocsLink href="#" />
+                <DocsLink href="https://claude.ai/code/artifact/3798c0d5-170b-43ab-a0a2-b66f4808a2cd" />
               }
             >
               <CardBlock label="Problem">
