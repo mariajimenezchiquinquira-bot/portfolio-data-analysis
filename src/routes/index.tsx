@@ -158,7 +158,7 @@ function Index() {
               </CardBlock>
               <CardBlock label="Result">
                 The three clusters were differentiated by frequency and spend value: occasional
-                low-spend (42.7%), occasional high-value (33.1%, ~9x higher), and frequent users
+                low-spend (42.7%), occasional high-value (33.1%, 9x higher), and frequent users
                 (24.2%).
               </CardBlock>
               <ProjectImageGrid
