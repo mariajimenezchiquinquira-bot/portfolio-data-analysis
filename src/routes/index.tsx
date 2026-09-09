@@ -136,7 +136,7 @@ function Index() {
             </ProjectCard>
 
             <ProjectCard
-              title="Customer Segmentation for Credit Card Clients"
+              title="Credit Cardholder Segmentation by Spending Behavior"
               tech={["Python", "SQL"]}
               actions={
                 <ActionLink href="/ConsumoTarjetasCredito.html" variant="solid">
@@ -146,20 +146,20 @@ function Index() {
               }
             >
               <CardBlock label="Problem">
-                A bank needed to identify distinct consumption behaviors among 47,871 credit card
-                holders to design targeted promotions, but no predefined customer groups existed.
+                A Colombian bank had spending data for over 47,000 credit cardholders, but lacked
+                a segmentation based on their usage behavior, limiting the design of targeted
+                promotions.
               </CardBlock>
               <CardBlock label="Approach">
-                I applied K-means clustering to segment clients based on spending patterns, using
-                one-hot encoding, feature scaling, and the elbow method to determine the optimal
-                number of clusters. I then used SQL to analyze each segment's dominant category,
-                card brand, and spending behavior.
+                I applied K-means clustering to segment clients based on their transactional
+                behavior and used the elbow method to determine the optimal number of clusters. I
+                then used SQL to analyze the frequency, average spend, and dominant category of
+                each cluster.
               </CardBlock>
               <CardBlock label="Result">
-                Identified 4 distinct customer segments. The analysis revealed that 91% of clients
-                share a common national, in-store spending pattern, while a smaller international,
-                online-shopping segment emerged as a differentiated opportunity for targeted
-                promotions.
+                The three clusters were differentiated by frequency and spend value: occasional
+                low-spend (42.7%), occasional high-value (33.1%, ~9x higher), and frequent users
+                (24.2%).
               </CardBlock>
               <ProjectImageGrid
                 columns={3}
