@@ -56,8 +56,6 @@ const SKILLS = [
   "Power BI",
   "Excel",
   "R",
-  "Claude Code",
-  "MCP",
   "Power Automate",
   "N8N",
   "Tableau",
