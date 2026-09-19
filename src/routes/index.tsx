@@ -104,25 +104,24 @@ function Index() {
           </h2>
           <div className="mt-8 grid gap-6">
             <ProjectCard
-              title="Customer Churn & Capital Loss Analysis"
+              title="Analysis — Customer Churn & Capital Loss"
               tech={["Power BI", "DAX", "Data Visualization"]}
               actions={
                 <GithubLink href="https://github.com/mariajimenezchiquinquira-bot/PowerBi-Customer-Churn-Capital-Loss-Analysis" />
               }
             >
               <CardBlock label="Problem">
-                A bank was experiencing customer attrition without understanding its main drivers
-                or impact on capital.
+                A bank was experiencing high customer churn without a clear understanding of its
+                main drivers or the financial impact associated with it.
               </CardBlock>
               <CardBlock label="Approach">
-                I conducted an exploratory analysis in Power BI and, through visualizations and
-                comparisons, identified the patterns that best explained attrition and the
-                highest-risk segments.
+                An exploratory analysis was conducted in Power BI to identify churn patterns,
+                compare customer segments, and detect customers at higher risk of leaving.
               </CardBlock>
               <CardBlock label="Results">
-                The bank faces capital leakage concentrated in high-balance customers, generating a
-                significant financial impact. The primary warning signal is inactivity,
-                particularly in Germany, which registers the highest churn rate.
+                The analysis showed that capital loss was concentrated among customers with high
+                account balances, creating a significant financial impact. Inactivity emerged as
+                the main warning signal, particularly in Germany, which had the highest churn rate.
               </CardBlock>
               <img
                 src={churnDashboard}
@@ -133,8 +132,8 @@ function Index() {
             </ProjectCard>
 
             <ProjectCard
-              title="Credit Cardholder Segmentation by Spending Behavior"
-              tech={["Python", "SQL"]}
+              title="Segmentation — Cardholders by Spending Behavior"
+              tech={["Python", "SQL", "Scikit-learn", "K-means"]}
               actions={
                 <ActionLink href="/ConsumoTarjetasCredito.html" variant="solid">
                   <FileText className="h-4 w-4" aria-hidden="true" />
@@ -143,20 +142,21 @@ function Index() {
               }
             >
               <CardBlock label="Problem">
-                A Colombian bank had spending data for over 47,000 credit cardholders, but lacked
-                a segmentation based on their usage behavior, limiting the design of targeted
-                promotions.
+                A bank had spending data from more than 47,000 cardholders, but no clear way to
+                group them based on how they used their cards, making it difficult to create
+                targeted promotions.
               </CardBlock>
               <CardBlock label="Approach">
-                I applied K-means clustering to segment clients based on their transactional
-                behavior and used the elbow method to determine the optimal number of clusters. I
-                then used SQL to analyze the frequency, average spend, and dominant category of
-                each cluster.
+                K-means was used to segment customers based on their transactional behavior, with
+                the Elbow Method used to determine the optimal number of segments. SQL queries
+                were then used to analyze usage frequency, average spending, and top spending
+                category for each group.
               </CardBlock>
               <CardBlock label="Result">
-                The three clusters were differentiated by frequency and spend value: occasional
-                low-spend (42.7%), occasional high-value (33.1%, 9x higher), and frequent users
-                (24.2%).
+                Three segments were identified: low-spending occasional users (42.7%), high-value
+                occasional users (33.1%), and frequent users (24.2%). Based on these profiles,
+                actions were defined to encourage usage among low-spending customers, strengthen
+                retention among high-value customers, and increase loyalty among frequent users.
               </CardBlock>
               <ProjectImageGrid
                 columns={3}
@@ -172,25 +172,27 @@ function Index() {
             </ProjectCard>
 
             <ProjectCard
-              title="Vehicle Contract Automation"
-              tech={["n8n", "Google Gemini (AI)"]}
+              title="Automation — Vehicle Contracts"
+              tech={["n8n", "Gemini (AI)", "Process Automation"]}
               actions={
                 <DocsLink href="/docs/vehicle-contract-automation-technical-documentation.pdf" />
               }
             >
               <CardBlock label="Problem">
-                A dealership's billing team manually extracted 8 data fields from PDF contracts
-                into a spreadsheet—a time-consuming process prone to human error.
+                A dealership's billing team manually transcribed 8 data fields from PDF contracts
+                into a spreadsheet. It was a repetitive, time-consuming process prone to human
+                error.
               </CardBlock>
-              <CardBlock label="Approach">
-                I built an automated n8n workflow using a loop to process multiple contracts. It
-                reads PDFs from Drive, sends text to Gemini AI via an Information Extractor node,
-                updates Google Sheets, and triggers a Gmail confirmation.
+              <CardBlock label="Solution">
+                Built an n8n workflow to automate the process end to end. It retrieves contracts
+                from Google Drive, extracts their content, and uses Gemini AI to identify the 8
+                required fields. The data is then automatically added to Google Sheets, and once
+                all contracts have been processed, the workflow sends a completion notification
+                via Gmail.
               </CardBlock>
               <CardBlock label="Result">
-                The pipeline processed all 15 contracts with zero errors, automatically appending
-                structured data and notifying the team. This eliminated manual data entry,
-                optimized loop processing, and improved billing reliability.
+                Manual data entry was eliminated and batch processing was streamlined, reducing
+                errors and making the billing process more reliable.
               </CardBlock>
               <div className="flex flex-col gap-3">
                 <a
@@ -252,7 +254,7 @@ function Index() {
             id="skills"
             className="relative text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl"
           >
-            Skills
+            Skills & Tools
             <span className="mt-2 block h-1 w-14 rounded-full bg-primary" aria-hidden="true" />
           </h2>
           <ul className="relative mt-8 flex flex-wrap gap-2">
@@ -270,7 +272,7 @@ function Index() {
 
       <footer className="border-t border-border bg-secondary/50">
         <div className="mx-auto flex max-w-5xl flex-col gap-4 px-6 py-10 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-sm text-muted-foreground">© 2026 María José Jiménez</p>
+          <p className="text-sm text-muted-foreground">© María José Jiménez</p>
           <div className="flex gap-5">
             <a
               href="https://www.linkedin.com/in/mariajosejimenez-ingenieraindustrial/"
